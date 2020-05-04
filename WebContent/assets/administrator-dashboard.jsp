@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="css/themify-icons.min.css">
 <link rel="stylesheet" href="css/theme-1.css" id="skin_color" />
 <script src="components/jquery-3.4.1.min.js"></script>
-<script src="components/items.js"></script>
+<script src="components/Hospital.js"></script>
 </head>
 <body>
 	<div class="navbarnav">
