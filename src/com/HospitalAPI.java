@@ -14,31 +14,39 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/HospitalAPI")
 public class HospitalAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	Hospital hospital = new Hospital();
-   
-    public HospitalAPI() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public HospitalAPI() {
+		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String output = hospital.insertHospital(request.getParameter("Hospital_id"), request.getParameter("Hospital_name"), request.getParameter("Hospital_location"), request.getParameter("Register_no"), request.getParameter("Email"), request.getParameter("Phone"));
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String output = hospital.insertHospital(request.getParameter("Hospital_id"),
+				request.getParameter("Hospital_name"), request.getParameter("Hospital_location"),
+				request.getParameter("Register_no"), request.getParameter("Email"), request.getParameter("Phone"));
 		response.getWriter().write(output);
 	}
 
 	@SuppressWarnings("rawtypes")
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		Map paras = getParasMap(request);
-		String output = hospital.updateHospital(paras.get("hidHospitalIDSave").toString(), paras.get("Hospital_id").toString(), paras.get("Hospital_name").toString(), paras.get("Hospital_location").toString(), paras.get("Register_no").toString(), paras.get("Email").toString(), paras.get("Phone").toString());
+		String output = hospital.updateHospital(paras.get("hidItemIDUpdate").toString(),
+				paras.get("Hospital_name").toString(), paras.get("Hospital_location").toString(),
+				paras.get("Register_no").toString(), paras.get("Email").toString(), paras.get("Phone").toString());
 		response.getWriter().write(output);
 	}
 
 	@SuppressWarnings("rawtypes")
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		Map paras = getParasMap(request);
 		String output = hospital.deleteHospital(paras.get("Hospital_id").toString());
 		response.getWriter().write(output);

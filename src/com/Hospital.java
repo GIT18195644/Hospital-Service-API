@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
 public class Hospital {
 	private Connection connect() {
 
@@ -94,7 +93,8 @@ public class Hospital {
 				String Phone = rs.getString("Phone");
 
 				// Add into the html table
-				output += " <tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + Hospital_id + "'>" + Hospital_name + "</td>";
+				output += " <tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='"
+						+ Hospital_id + "'>" + Hospital_name + "</td>";
 				output += "<td>" + Hospital_location + "</td>";
 				output += "<td>" + Register_no + "</td>";
 				output += "<td>" + Email + "</td>";
