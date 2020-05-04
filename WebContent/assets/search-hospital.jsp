@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Administrator | Dashboard</title>
+<title>Administrator | Search</title>
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/nav-bar.css">
 <link rel="stylesheet" href="css/plugins.css">
@@ -25,8 +25,8 @@
 		<div class="dropdownnav">
 			<button class="dropbtnnav">Hospitals</button>
 			<div class="dropdown-contentnav">
-				<a href="administrator-dashboard.jsp">Manage Hospitals Details</a> 
-				<a href="search-hospital.jsp">Search Hospital</a>
+				<a href="administrator-dashboard.jsp">Manage Hospitals Details</a> <a
+					href="search-hospital.jsp">Search Hospital</a>
 			</div>
 		</div>
 		<div class="dropdownnav">
@@ -40,39 +40,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
-				<h1>Hospital Management</h1>
-				<form id="formHospital" name="formHospital">
-					Hospital Name: 
-					<input id="hospitalname" name="hospitalname" type="text" class="form-control form-control-sm" required> <br> 
-					Location:
-					<input id="location" name="location" type="text" class="form-control form-control-sm" required> <br> 
-					Registration Number: 
-					<input id="regno" name="regno" type="text" class="form-control form-control-sm" required> <br> 
-					Email: 
-					<input id="email" name="email" type="text" class="form-control form-control-sm" required> <br> 
-					Phone Number: 
-					<input id="phone" name="phone" type="text" class="form-control form-control-sm" required> <br> 
-					
-					<input id="btnSave" name="btnSave" type="button" value="Create Hospital" class="btn btn-primary"> 
-					<input type="hidden" id="hidHospitalIDSave" name="hidHospitalIDSave" value="">
-					
-				</form><br>
-				<div id="alertSuccess" class="alert alert-success"></div>
-				<div id="alertError" class="alert alert-danger"></div>
+				<h1>Search Hospital</h1>
 				<br>
+				<input id="regno" name="regno" type="text" class="form-control form-control-sm" required>
+				<br>
+				<input id="btnSave" name="btnSave" type="button" value="Search" class="btn btn-primary"> 
+				<br> <br>
 				<div id="divItemsGrid">
 					<%
 						Hospital Hospital = new Hospital();
 						out.print(Hospital.readHospital());
 					%>
 				</div>
-				<br>
-				<br>
+				<br> <br>
 			</div>
 		</div>
 	</div>
-
-
-
 </body>
 </html>
