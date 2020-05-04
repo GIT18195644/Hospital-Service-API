@@ -28,13 +28,11 @@ public class HospitalAPI extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String output = hospital.insertHospital(request.getParameter("Hospital_id"),
-				request.getParameter("Hospital_name"), request.getParameter("Hospital_location"),
+		String output = hospital.insertHospital(request.getParameter("Hospital_name"), request.getParameter("Hospital_location"),
 				request.getParameter("Register_no"), request.getParameter("Email"), request.getParameter("Phone"));
 		response.getWriter().write(output);
 	}
 
-	@SuppressWarnings("rawtypes")
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Map paras = getParasMap(request);
@@ -44,7 +42,6 @@ public class HospitalAPI extends HttpServlet {
 		response.getWriter().write(output);
 	}
 
-	@SuppressWarnings("rawtypes")
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Map paras = getParasMap(request);
@@ -52,7 +49,6 @@ public class HospitalAPI extends HttpServlet {
 		response.getWriter().write(output);
 	}
 
-	@SuppressWarnings("rawtypes")
 	private static Map getParasMap(HttpServletRequest request) {
 		Map<String, String> map = new HashMap<String, String>();
 		try {

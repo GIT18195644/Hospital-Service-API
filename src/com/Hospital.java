@@ -22,7 +22,7 @@ public class Hospital {
 		return con;
 	}
 
-	public String insertHospital(String Hospital_id, String Hospital_name, String Hospital_location, String Register_no,
+	public String insertHospital(String Hospital_name, String Hospital_location, String Register_no,
 			String Email, String Phone) {
 
 		String output = "";
@@ -40,7 +40,7 @@ public class Hospital {
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values
-			preparedStmt.setString(1, Hospital_id);
+			preparedStmt.setInt(1, 0);
 			preparedStmt.setString(2, Hospital_name);
 			preparedStmt.setString(3, Hospital_location);
 			preparedStmt.setString(4, Register_no);
@@ -139,7 +139,7 @@ public class Hospital {
 			preparedStmt.setString(3, Register_no);
 			preparedStmt.setString(4, Email);
 			preparedStmt.setString(5, Phone);
-			preparedStmt.setString(6, Hospital_id);
+			preparedStmt.setInt(6, Integer.parseInt(Hospital_id));
 
 			// execute the statement
 			preparedStmt.execute();

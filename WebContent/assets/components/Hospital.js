@@ -14,7 +14,7 @@ $(document).on("click", "#btnSave", function(event)
 	$("#alertError").hide();
 
 	// Form validation-------------------
-	var status = validateItemForm();
+	var status = validateForm();
 	if (status != true)
 	{
 		$("#alertError").text(status);
@@ -121,7 +121,7 @@ function onItemDeleteComplete(response, status)
 }
 
 //CLIENT-MODEL================================================================
-function validateItemForm()
+function validateForm()
 {
 	// CODE
 	if ($("#hospitalname").val().trim() == "")
