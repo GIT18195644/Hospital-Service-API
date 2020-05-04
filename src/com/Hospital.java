@@ -77,8 +77,8 @@ public class Hospital {
 			}
 
 			// Prepare the html table to be displayed
-			output = "<table class=\"table\"><thead><tr><th scope=\"col\">Hospital Name</th><th scope=\"col\">Location</th>"
-					+ "<th scope=\"col\">Register No</th><th scope=\"col\">Email</th><th scope=\"col\">Phone</th><th scope=\"col\">Update</th><th scope=\"col\">Remove</th></tr></thead>";
+			output = "<table class=\"table\"><thead><tr><th>Hospital Name</th><th>Location</th>"
+					+ "<th>Register No</th><th>Email</th><th>Phone</th><th>Update</th><th>Remove</th></tr></thead></tbody>";
 
 			String query = "SELECT * FROM hospitalmanagement";
 			Statement stmt = con.createStatement();
@@ -94,16 +94,15 @@ public class Hospital {
 				String Phone = rs.getString("Phone");
 
 				// Add into the html table
-				output += " <tr><td>" + Hospital_name + "</td>";
+				output += " <tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + Hospital_id + "'>" + Hospital_name + "</td>";
 				output += "<td>" + Hospital_location + "</td>";
 				output += "<td>" + Register_no + "</td>";
 				output += "<td>" + Email + "</td>";
 				output += "<td>" + Phone + "</td>";
-
 				// buttons
 				output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td> "
 						+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-hospitalid='"
-						+ Hospital_id + "'>" + "</td></tr></tbody></table>";
+						+ Hospital_id + "'>" + "</td></tr></tbody>";
 			}
 
 			con.close();
