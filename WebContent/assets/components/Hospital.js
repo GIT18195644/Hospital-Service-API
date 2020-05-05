@@ -14,7 +14,7 @@ $(document).on("click", "#btnSave", function(event)
 	$("#alertError").hide();
 
 	// Form validation-------------------
-	var status = validateForm();
+	var status = validateItemForm();
 	if (status != true)
 	{
 		$("#alertError").text(status);
@@ -23,13 +23,13 @@ $(document).on("click", "#btnSave", function(event)
 	}
 
 	// If valid------------------------
-	var type = ($("#hidHospitalIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
 
 	$.ajax(
 	{
 		url : "HospitalAPI",
 		type : type,
-		data : $("#formHospital").serialize(),
+		data : $("#formItem").serialize(),
 		dataType : "text",
 		complete : function(response, status)
 		{
@@ -63,19 +63,19 @@ function onItemSaveComplete(response, status)
 		$("#alertError").text("Unknown error while saving..");
 		$("#alertError").show();
 	}
-	$("#hidHospitalIDSave").val("");
-	$("#formHospital")[0].reset();
+	$("#hidItemIDSave").val("");
+	$("#formItem")[0].reset();
 }
 
 //UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event)
 {
-	$("#hidHospitalIDSave").val($(this).closest("tr").find('#hidHospitalIDUpdate').val());
-	$("#hospitalname").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#location").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#regno").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#email").val($(this).closest("tr").find('td:eq(3)').text());
-	$("#phone").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#hidItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val());
+	$("#Hospital_name").val($(this).closest("tr").find('td:eq(0)').text());
+	$("#Hospital_location").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#Register_no").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#Email").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#Phone").val($(this).closest("tr").find('td:eq(4)').text());
 }); 
 
 //REMOVE==========================================
@@ -85,7 +85,7 @@ $(document).on("click", ".btnRemove", function(event)
 		 {
 		 url : "HospitalAPI",
 		 type : "DELETE",
-		 data : "Hospital_id=" + $(this).data("Hospital_id"),
+		 data : "Hospital_id=" + $(this).data("itemid"),
 		 dataType : "text",
 		 complete : function(response, status)
 		 {
@@ -121,29 +121,33 @@ function onItemDeleteComplete(response, status)
 }
 
 //CLIENT-MODEL================================================================
-function validateForm()
+function validateItemForm()
 {
 	// CODE
-	if ($("#hospitalname").val().trim() == "")
+	if ($("#Hospital_name").val().trim() == "")
 	{
-		return "Insert Hospital Name.";
+		return "Insert Hospital_name.";
 	}
 	// NAME
-	if ($("#location").val().trim() == "")
+	if ($("#Hospital_location").val().trim() == "")
 	{
-		return "Insert Location.";
+		return "Insert Hospital_location.";
 	}
 	// PRICE-------------------------------
-	if ($("#regno").val().trim() == "")
+	if ($("#Register_no").val().trim() == "")
 	{
-		return "Insert Registration Number.";
+		return "Insert Register_no.";
 	}
 	// is numerical value
-	var tmpPrice = $("#phone").val().trim();
+	var tmpPrice = $("#Phone").val().trim();
 	if (!$.isNumeric(tmpPrice))
 	{
-		return "Insert a numerical value for phone number.";
+		return "Insert a numerical value.";
 	}
-	
+	// DESCRIPTION------------------------
+	if ($("#Email").val().trim() == "")
+	{
+		return "Insert Email.";
+	}
 	return true;
 }

@@ -41,20 +41,20 @@
 		<div class="row">
 			<div class="col-6">
 				<h1>Hospital Management</h1>
-				<form id="formHospital" name="formHospital">
+				<form id="formItem" name="formItem">
 					Hospital Name: 
-					<input id="hospitalname" name="hospitalname" type="text" class="form-control form-control-sm" required> <br> 
+					<input id="Hospital_name" name="Hospital_name" type="text" class="form-control form-control-sm"> <br> 
 					Location:
-					<input id="location" name="location" type="text" class="form-control form-control-sm" required> <br> 
+					<input id="Hospital_location" name="Hospital_location" type="text" class="form-control form-control-sm"> <br> 
 					Registration Number: 
-					<input id="regno" name="regno" type="text" class="form-control form-control-sm" required> <br> 
+					<input id="Register_no" name="Register_no" type="text" class="form-control form-control-sm"> <br> 
 					Email: 
-					<input id="email" name="email" type="text" class="form-control form-control-sm" required> <br> 
+					<input id="Email" name="Email" type="text" class="form-control form-control-sm"> <br> 
 					Phone Number: 
-					<input id="phone" name="phone" type="text" class="form-control form-control-sm" required> <br> 
+					<input id="Phone" name="Phone" type="text" class="form-control form-control-sm"> <br> 
 					
 					<input id="btnSave" name="btnSave" type="button" value="Create Hospital" class="btn btn-primary"> 
-					<input type="hidden" id="hidHospitalIDSave" name="hidHospitalIDSave" value="">
+					<input type="hidden" id="hidItemIDSave" name="hidItemIDSave" value="">
 					
 				</form><br>
 				<div id="alertSuccess" class="alert alert-success"></div>

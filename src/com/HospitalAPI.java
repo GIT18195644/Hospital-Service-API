@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+import com.Hospital;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +36,7 @@ public class HospitalAPI extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Map paras = getParasMap(request);
-		String output = hospital.updateHospital(paras.get("hidItemIDUpdate").toString(),
+		String output = hospital.updateHospital(paras.get("hidItemIDSave").toString(),
 				paras.get("Hospital_name").toString(), paras.get("Hospital_location").toString(),
 				paras.get("Register_no").toString(), paras.get("Email").toString(), paras.get("Phone").toString());
 		response.getWriter().write(output);
@@ -61,7 +61,7 @@ public class HospitalAPI extends HttpServlet {
 				map.put(p[0], p[1]);
 			}
 		} catch (Exception e) {
-			System.err.println(e);
+			
 		}
 		return map;
 	}

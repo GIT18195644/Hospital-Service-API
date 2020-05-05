@@ -22,8 +22,8 @@ public class Hospital {
 		return con;
 	}
 
-	public String insertHospital(String Hospital_name, String Hospital_location, String Register_no,
-			String Email, String Phone) {
+	public String insertHospital(String Hospital_name, String Hospital_location, String Register_no, String Email,
+			String Phone) {
 
 		String output = "";
 
@@ -55,7 +55,7 @@ public class Hospital {
 
 			output = "{\"status\":\"success\", \"data\": \"" + newHospital + "\"}";
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while inserting the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while inserting the data.\"}";
 
 			System.err.println(e.getMessage());
 
@@ -85,7 +85,7 @@ public class Hospital {
 
 			// iterate through the rows in the result set
 			while (rs.next()) {
-				String Hospital_id = rs.getString("Hospital_id");
+				String Hospital_id = Integer.toString(rs.getInt("Hospital_id"));
 				String Hospital_name = rs.getString("Hospital_name");
 				String Hospital_location = rs.getString("Hospital_location");
 				String Register_no = rs.getString("Register_no");
@@ -101,7 +101,7 @@ public class Hospital {
 				output += "<td>" + Phone + "</td>";
 				// buttons
 				output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td> "
-						+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-hospitalid='"
+						+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-itemid='"
 						+ Hospital_id + "'>" + "</td></tr></tbody>";
 			}
 
@@ -150,7 +150,7 @@ public class Hospital {
 			output = "{\"status\":\"success\", \"data\": \"" + newHospital + "\"}";
 
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while updating the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while updating the data.\"}";
 
 			System.err.println(e.getMessage());
 		}
@@ -176,7 +176,7 @@ public class Hospital {
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values
-			preparedStmt.setString(1, Hospital_id);
+			preparedStmt.setInt(1, Integer.parseInt(Hospital_id));
 
 			// execute the statement
 			preparedStmt.execute();
