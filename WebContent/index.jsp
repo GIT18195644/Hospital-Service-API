@@ -26,7 +26,7 @@
 			</div>
 
 			<div class="box-login">
-				<form class="form-login" action="assets/administrator-dashboard.jsp" method="post">
+				<form class="form-login" action="Hospital.jsp" method="post">
 					<fieldset>
 
 						<p>
