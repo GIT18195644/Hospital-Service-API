@@ -34,13 +34,13 @@
 						</p>
 						<div class="form-group">
 							<span class="input-icon"> <input type="text"
-								class="form-control" name="username" placeholder="Username" required>
+								class="form-control" name="username" placeholder="Username" value="IT18195644" required>
 							</span>
 						</div>
 						<div class="form-group form-actions">
 							<span class="input-icon"> <input type="text"
 								class="form-control password" name="password"
-								placeholder="Password" required>
+								placeholder="Password" value="12345" required>
 							</span>
 						</div>
 						<div class="form-actions">
