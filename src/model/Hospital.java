@@ -14,7 +14,7 @@ public class Hospital {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			// Provide the correct details: DBServer/DBName, username, password
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/health-system?serverTimezone=UTC", "root",
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ayurwedha?serverTimezone=UTC", "root",
 					"");
 
 			// For testing
@@ -41,7 +41,7 @@ public class Hospital {
 					+ "<th>Emergency Number</th><th>Email</th>"
 					+ "<th>Description</th><th>Opening Hours</th>" + "<th>Update Details</th><th>Remove Hospital</th></tr></thead>";
 
-			String query = "select * from hospitals";
+			String query = "select * from hospitalmanagement";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 
@@ -101,7 +101,7 @@ public class Hospital {
 			}
 
 			// create a prepared statement
-			String query = " insert into hospitals (`Hospital_ID`,`Hospital_Name`,`Hospital_Address`,`Hospital_City`,`Hospital_Phone`,`Hospital_Email`,`Hospital_Description`,`Open_Hours`)"
+			String query = " insert into hospitalmanagement (`Hospital_ID`,`Hospital_Name`,`Hospital_Address`,`Hospital_City`,`Hospital_Phone`,`Hospital_Email`,`Hospital_Description`,`Open_Hours`)"
 					+ " values (?, ?, ?, ?, ?, ?, ?, ?)";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -145,7 +145,7 @@ public class Hospital {
 			}
 
 			// create a prepared statement
-			String query = "UPDATE hospitals SET Hospital_Name=?,Hospital_Address=?,Hospital_City=?,Hospital_Phone=?,Hospital_Email=?,Hospital_Description=?,Open_Hours=?      "
+			String query = "UPDATE hospitalmanagement SET Hospital_Name=?,Hospital_Address=?,Hospital_City=?,Hospital_Phone=?,Hospital_Email=?,Hospital_Description=?,Open_Hours=?      "
 					+ "			WHERE Hospital_ID=?";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -186,7 +186,7 @@ public class Hospital {
 			}
 
 			// create a prepared statement
-			String query = "DELETE FROM hospitals WHERE Hospital_ID=?";
+			String query = "DELETE FROM hospitalmanagement WHERE Hospital_ID=?";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
